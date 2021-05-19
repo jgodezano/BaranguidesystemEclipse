@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="ISO-8859-1">
+ <title>Resident Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+
+<style>
+body{
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f3f4f6;
+  
+}
+header{
+  position: fixed;
+  background: #052d31;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+  display: inline-flex;
+}
+
+
+.resident_card_header h3{
+  color: rgb(24, 218, 33);
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .resident_card_header span{
+    color: rgb(245, 245, 245);
+  }
+
+  .left_area h3{
+    color: rgb(24, 218, 33);
+      text-transform: uppercase;
+      margin: 0;
+      font-size: 20px;
+      font-weight: 900;
+    }
+  
+    .left_area span{
+      color: rgb(245, 245, 245);
+    }
+
+  .right_area{
+  margin-left: 720px;
+  }
+  
+
+.resident_card_header button{
+  background-image: #fff;
+  border-radius: 10px;
+  font-size: .8rem;
+  padding: .2rem 1rem;
+  border: 2px solid;
+}
+
+.btn_grid{
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 61% auto;
+  margin-top: 140px;
+  margin-left: 1129px;
+    border-radius: 5px;
+    display: inline-flex;
+    gap: 20;
+}
+
+.btn_card button{
+  border-radius: 5px;
+  padding: 14px 14px 14px 14px;
+}
+
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate( -50%, -50%);
+  width: 1200px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 12px rgba(92, 206, 149, 0.2), -1px -1px 8px rgba(255, 255, 255, 0.2);
+}
+
+.resident_grid{
+  background-image: linear-gradient(135deg, #31474d 0%, #597272 74%);
+}
+
+thead tr{
+  border-top: 1px solid black;
+  border-bottom:  1px solid black;
+  color: black;
+}
+
+thead td{
+  font-weight: 600;
+}
+
+td{
+  padding: .5rem 1rem;
+  font-size: .94rem;
+  color: #222;
+  width: 50%;
+}
+
+tr:hover{
+ transform: scale(1.01);
+ box-shadow: 2px 2px 12px rgba(92, 206, 149, 0.2), -1px -1px 8px rgba(255, 255, 255, 0.2);
+
+}
+
+tr td:last-child {
+  display: flex;
+  align-items: center;
+}
+.button {
+  background-color: #01281A; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {
+  width: 10%;
+}
+.button2 {width: 10%;}
+.button3 {width: 10%;}
+
+.button:hover{
+  background: #16b37e;
+}
+
+.popup .overpopup {
+  position: fixed;
+  top: 150px;
+  left: 410px;
+  width: 470px;
+  height: 430px;
+  background: white;
+  z-index: 1;
+  display: none;
+  border-radius: 5px;
+  border: 2px solid #052d31;
+  overflow: scroll;
+}
+
+.popup .popupcontent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #fff;
+  width: 470px;
+  height: 300px;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popup button{
+margin-left: 350px;
+    border-radius: 5px;
+    padding: 14px 14px 14px 14px;
+}
+
+.popup .residentimg{
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 10px;
+    margin-bottom: 0px;
+    position: relative;
+    display: inline-flex;
+}
+
+.popup .popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -0px;
+    right: -0px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.popup.active .overpopup {
+  display: block;
+}
+
+.popup.active .popupcontent {
+  transition: all 300ms ease-in-out;
+  transform: translate(-50%, -50%) scale(0);
+}
+</style>
+
+<body>
+<header>
+        <div class="resident_card_header">
+          <h3>BARANGUIDE <span>INFORMATICS</span></h3>
+        </div>
+        
+        <div class="right_area">
+                  
+                    <form class="example" action="action_page.php">
+                      <input type="text" placeholder="Search.." name="search">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                      <button> View by:<span class="las la-arrow-right"></span></button>
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                    </form>
+                    </div>
+                
+              </header>
+              <br>
+              <div class="btn_grid">
+                <div class="btn_card">
+<button style="background-color: #395858; color: white;">Update</button>
+<button style="background-color: #11484d; color: white;">Delete</button>
+</div>
+</div>
+         
+                  <div class="table_responsive">
+                  <table>
+                    
+                    <thead>
+                      <tr>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Fullname</b> </td>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Purok</b> </td>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Age </b></td>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Gender </b></td>
+                      </tr>
+                      <tr onclick="togglePopup()">
+                        <td>Mirasol Estor</td>
+                        <td>Purok</td>
+                        <td>20</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr onclick="togglePopup1()">
+                        <td> Venus Jemina</td>
+                        <td>Purok</td>
+                        <td> 21</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr onclick="togglePopup2()">
+                        <td> Ron Fernandez</td>
+                        <td>Purok</td>
+                        <td> 20</td>
+                        <td>Male</td>
+                      </tr>
+                      <tr onclick="togglePopup3()">
+                        <td> Jerika Kia Villar</td>
+                        <td>Purok</td>
+                        <td> 21</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr  onclick="togglePopup4()">
+                        <td> Jessie Godezano</td>
+                        <td>Purok</td>
+                        <td> 21</td>
+                        <td>Male</td>
+                      </tr>
+                      <tr  onclick="togglePopup5()">
+                         <td> Ermir Donayre</td>
+                        <td>Purok</td>
+                        <td> 1</td>
+                        <td>Male</td>
+
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+
+                <div class="popup" id="popup1">
+                  <div class="overpopup">
+                  <div class="popupcontent">
+        
+                  </div>
+                  <div class="popupCloseButton" onclick="togglePopup()"> &times; </div>
+                  <img src="C:\Users\Jerika\Documents\GitHub\baranguide-informatics\src image\brgy logo.jpg" class="residentimg" alt=""> <br><br>
+                  <span style="margin-left: 20px;"> Name: Mirasol Estor</span> <br><br>
+                  <span style="margin-left: 20px;"> Address: 124 Purok 1 Brgy. Buer Pangasinan </span> <br><br>
+                  <span style="margin-left: 20px;"> Age: 21 </span> <br><br>
+                  <span style="margin-left: 20px;"> Number: 09123456778 </span> <br><br>
+                  <span style="margin-left: 20px;"> Email: mestor@gmail.com </span> <br><br>
+                  <button style="background-color: #4d8888; color: white;">Create QR</button>
+                </div>
+                <header>
+        <div class="resident_card_header">
+          <h3>BARANGUIDE <span>INFORMATICS</span></h3>
+        </div>
+        
+        <div class="right_area">
+                  
+                    <form class="example" action="action_page.php">
+                      <input type="text" placeholder="Search.." name="search">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                      <button> View by:<span class="las la-arrow-right"></span></button>
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                    </form>
+                    </div>
+                
+              </header>
+              <br>
+              <div class="btn_grid">
+                <div class="btn_card">
+<button style="background-color: #395858; color: white;">Update</button>
+<button style="background-color: #11484d; color: white;">Delete</button>
+</div>
+</div>
+         
+                  <div class="table_responsive">
+                  <table>
+                    
+                    <thead>
+                      <tr>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Fullname</b> </td>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Purok</b> </td>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Age </b></td>
+                        <td style="color: rgb(0, 0, 0); background-color: #058a22;"> <b> Gender </b></td>
+                      </tr>
+                      <tr onclick="togglePopup()">
+                        <td>Mirasol Estor</td>
+                        <td>Purok</td>
+                        <td>20</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr onclick="togglePopup1()">
+                        <td> Venus Jemina</td>
+                        <td>Purok</td>
+                        <td> 21</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr onclick="togglePopup2()">
+                        <td> Ron Fernandez</td>
+                        <td>Purok</td>
+                        <td> 20</td>
+                        <td>Male</td>
+                      </tr>
+                      <tr onclick="togglePopup3()">
+                        <td> Jerika Kia Villar</td>
+                        <td>Purok</td>
+                        <td> 21</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr  onclick="togglePopup4()">
+                        <td> Jessie Godezano</td>
+                        <td>Purok</td>
+                        <td> 21</td>
+                        <td>Male</td>
+                      </tr>
+                      <tr  onclick="togglePopup5()">
+                         <td> Ermir Donayre</td>
+                        <td>Purok</td>
+                        <td> 1</td>
+                        <td>Male</td>
+
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+
+                <div class="popup" id="popup1">
+                  <div class="overpopup">
+                  <div class="popupcontent">
+        
+                  </div>
+                  <div class="popupCloseButton" onclick="togglePopup()"> &times; </div>
+                  <img src="C:\Users\Jerika\Documents\GitHub\baranguide-informatics\src image\brgy logo.jpg" class="residentimg" alt=""> <br><br>
+                  <span style="margin-left: 20px;"> Name: Mirasol Estor</span> <br><br>
+                  <span style="margin-left: 20px;"> Address: 124 Purok 1 Brgy. Buer Pangasinan </span> <br><br>
+                  <span style="margin-left: 20px;"> Age: 21 </span> <br><br>
+                  <span style="margin-left: 20px;"> Number: 09123456778 </span> <br><br>
+                  <span style="margin-left: 20px;"> Email: mestor@gmail.com </span> <br><br>
+                  <button style="background-color: #4d8888; color: white;">Create QR</button>
+                </div>
+                </div>
+                <div class="popup" id="popup3">
+                  <div class="overpopup">
+                  <div class="popupcontent">
+        
+                  </div>
+                  <div class="popupCloseButton" onclick="togglePopup2()"> &times; </div>
+                  <img src="C:\Users\Jerika\Documents\GitHub\baranguide-informatics\src image\brgy logo.jpg" class="residentimg" alt=""> <br><br>
+                  <span style="margin-left: 20px;"> Name: Ron Fernandez</span> <br><br>
+                  <span style="margin-left: 20px;"> Address: 123 Purok 1 Brgy. Buer Pangasinan </span> <br><br>
+                  <span style="margin-left: 20px;"> Age: 21 </span> <br><br>
+                  <span style="margin-left: 20px;"> Number: 09345678912 </span> <br><br>
+                  <span style="margin-left: 20px;"> Email: rfernandez@gmail.com </span> <br><br>
+                  <button style="background-color: #4d8888; color: white;">Create QR</button>
+                </div>
+                </div>
+                <div class="popup" id="popup4">
+                  <div class="overpopup">
+                  <div class="popupcontent">
+        
+                  </div>
+                  <div class="popupCloseButton" onclick="togglePopup3()"> &times; </div>
+                  <img src="C:\Users\Jerika\Documents\GitHub\baranguide-informatics\src image\brgy logo.jpg" class="residentimg" alt=""> <br><br>
+                  <span style="margin-left: 20px;"> Name: Jerika Kia Villar</span> <br><br>
+                  <span style="margin-left: 20px;"> Address: 123 Purok 1 Brgy. Buer Pangasinan </span> <br><br>
+                  <span style="margin-left: 20px;"> Age: 21 </span> <br><br>
+                  <span style="margin-left: 20px;"> Number: 09111111111 </span> <br><br>
+                  <span style="margin-left: 20px;"> Email: jvillar@gmail.com </span> <br><br>
+                  <button style="background-color: #4d8888; color: white;">Create QR</button>
+                </div>
+                </div>
+                <div class="popup" id="popup5">
+                  <div class="overpopup">
+                  <div class="popupcontent">
+        
+                  </div>
+                  <div class="popupCloseButton" onclick="togglePopup4()"> &times; </div>
+                  <img src="C:\Users\Jerika\Documents\GitHub\baranguide-informatics\src image\brgy logo.jpg" class="residentimg" alt=""> <br><br>
+                  <span style="margin-left: 20px;"> Name: Jessie Godezano</span> <br><br>
+                  <span style="margin-left: 20px;"> Address: 123 Purok 1 Brgy. Buer Pangasinan </span> <br><br>
+                  <span style="margin-left: 20px;"> Age: 21 </span> <br><br>
+                  <span style="margin-left: 20px;"> Number: 09198762637 </span> <br><br>
+                  <span style="margin-left: 20px;"> Email: jgodezano@gmail.com </span> <br><br>
+                  <button style="background-color: #4d8888; color: white;">Create QR</button>
+                </div>
+                </div>
+                <div class="popup" id="popup6">
+                  <div class="overpopup">
+                  <div class="popupcontent">
+        
+                  </div>
+                  <div class="popupCloseButton" onclick="togglePopup5()"> &times; </div>
+                  <img src="C:\Users\Jerika\Documents\GitHub\baranguide-informatics\src image\brgy logo.jpg" class="residentimg" alt=""> <br><br>
+                  <span style="margin-left: 20px;"> Name: Ermir Donayre</span> <br><br>
+                  <span style="margin-left: 20px;"> Address: 123 Purok 1 Brgy. Buer Pangasinan </span> <br><br>
+                  <span style="margin-left: 20px;"> Age: 1 </span> <br><br>
+                  <span style="margin-left: 20px;"> Number: 09123456789 </span> <br><br>
+                  <span style="margin-left: 20px;"> Email: edonayre@gmail.com </span> <br><br>
+                  <button style="background-color: #4d8888; color: white;">Create QR</button>
+                </div>
+                 </div>
+
+              </div>
+        </div>
+           
+</body>
+</html>

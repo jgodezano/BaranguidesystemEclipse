@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Unsettled Cases</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+/*  styling scrollbars  */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #a5aaad;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9eee1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #052d31;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  background: fixed;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  
+}
+
+header{
+  position: fixed;
+  background: #052d31;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+}
+
+.left_area h3{
+  color: rgb(24, 218, 33);
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .left_area span{
+    color: rgb(245, 245, 245);
+  }
+
+.logout_btn{
+  padding: 5px;
+  background: rgb(24, 218, 33);;
+  text-decoration: none;
+  float: right;
+  margin-top: -30px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.logout_btn:hover{
+  background: #395858;
+}
+
+
+.content{
+  height: 150vh;
+  transition: 0.5s;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(135deg, #014e44 10%, #309b9b 74%);  
+}
+  
+
+main {
+  background-image: linear-gradient(135deg, #014e44 10%, #309b9b 74%);
+  margin-left: 0px;
+  min-height: calc(100vh - 90px);
+  display: inline-block;
+    transition: 0.5s;
+  transition-property: left;
+  height: 500px;
+margin-top: 50px;
+}
+
+.main__container {
+  padding: 40px 20px;
+
+}
+.main__title {
+  display: flex;
+  align-items: center;
+}
+
+.main__greeting > h1 {
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+}
+
+
+.menu-area li a {
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  padding: 0 25px;
+  font-size: 14px;
+  line-height: 30px;
+
+  z-index: 1;
+
+}
+.menu-area li {
+  list-style: none;
+  display: inline-block;
+}
+.custom-padding {
+margin-bottom: 20px;
+margin-top: -30px;
+}
+nav {
+  display: inline-block;
+  position: unset;
+  padding: 10px 20px 10px 10px;
+  text-align: right;
+  z-index: 1;
+  background: #333;
+  margin: 0 auto;
+  width: calc(100% - 60px);
+  margin-top: 50px;
+}
+.start {
+  width: 15%;
+  float: left;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 2%;
+
+}
+.menu-area li a:hover {
+  background: rgb(24, 218, 33);;
+  color: #fff;
+}
+
+.table_grid{
+display: grid;
+
+  grid-template-columns: 80% auto;
+  margin-top: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+      background: #fff;
+      border-radius: 5px;
+align-items: center;
+
+  margin-bottom: 0px;
+}
+
+.table-box
+{
+    margin: 100px auto; 
+    margin-top: 30px;
+}
+
+.table-row{
+
+    display: table;
+    width: 90%;
+    margin: 10px auto;
+    font-family: sans-serif;
+    background: transparent;
+    padding: 7px 0;
+    color: #555;
+    font-size: 15px;
+    box-shadow: 0 1px 4px 0px rgba(0,0,50,0.3);
+
+}
+.table-head{
+    background: #052d31;
+    box-shadow: none;
+    color: #fff;
+    font-weight: 600;
+
+}
+.table-head .table-cell{
+    border-right: none;
+    background: linear-gradient(135deg, #014e44, #f5f7f7);
+}
+.table-cell{
+    display: table-cell;
+    width: 200px;
+    text-align: center;
+    padding: 4px 0;
+    border-right: 1px solid #2f8ea8;
+    vertical-align: middle;
+
+
+}
+.first-cell{
+    text-align: left;
+    padding-left: 10px;
+    
+
+}
+.last-cell{
+    border-right: none;
+       border-right: 1px solid #2f8ea8;
+}
+a{
+    text-decoration: none;
+    color: #555;
+
+}
+
+.main__cards {
+  display: grid;
+  margin: 10px 5;
+  margin-top: 0px;
+  gap:5px;
+}
+
+.cards {
+  display: grid;
+  margin: 100px 100;
+  margin-top: 0px;
+  gap:5px;
+}
+
+.cards {
+ display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  padding: 40px;
+  width: 140px;
+  background: linear-gradient(135deg, #014e44, #f5f7f7); 
+  align-items: center;
+  writing-mode: vertical-rl;
+text-orientation: upright;
+font-size: 24px;
+font-weight: 600px;
+}
+
+.cards_inner {
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.card {
+ display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70px;
+  padding: 20px;
+  width: 140px;
+  border-radius: 5px;
+  border: 1px solid #2F4F4F;
+  background: #ffffff;
+  background: linear-gradient(135deg, #014e44, #f5f7f7); 
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600px;
+}
+
+.card_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #395858;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 20px 20px;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.searchbox {  
+float: left;  
+}  
+input[type=text] {  
+padding: 6px;  
+margin-top: 8px;  
+font-size: 17px;
+color: black;  
+border: none;  
+border-style: inset;
+}  
+.searchbox button {  
+  
+padding: 8px;  
+margin-top: 10px;  
+margin-left: 10px;  
+background: orange;  
+font-size: 20px;  
+border: none;  
+cursor: pointer; 
+}  
+.searchbox button:hover {  
+background: blue;  
+}  
+
+.serch-container {
+	color: black;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 13px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #003380;} 
+.button2 {background-color: #004d00;}
+.button3 {background-color: #ff8c1a;}
+
+
+
+
+</style>
+<body>
+<input type="checkbox" id="check">
+
+    <header>
+      <div class="left_area">
+        <h3>BARANGUIDE <span>INFORMATICS</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn"><i class="fas fa-power-off"></i>  Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+
+
+    <div class="content">
+                <main>
+        <div class="main__container">
+
+          <div class="main__title">
+            <div class="main__greeting">
+              <h1>Settlement Request</h1>
+            </div>
+          </div>
+          <!-- MAIN TITLE ENDS HERE -->
+
+<div></div>
+<div class="inset" class="search-container">
+    <form> 
+<input type="text" placeholder=" Type any of text in fields" name="search"> 
+<button class="button button1">Search</button>
+<button class="button button2">View</button>
+<button class="button button3">Home</button>
+<a href="sschedule.html"></a>
+
+</form>
+  </div>
+
+          <!-- TABLE STARTS HERE -->
+          <div class="table_grid">
+            <div class="table-box">
+              <div class="table-row table-head">
+            <div class="table-cell first-cell">
+                <p>Blotter No.</p>
+            </div>
+            <div class="table-cell">
+                <p>Type of Incident</p>
+            </div>
+            <div class="table-cell">
+                <p>Blotter Status</p>
+            </div>
+            <div class="table-cell">
+                <p>Date and Time Reported</p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <p>Date and Time of Incident</p>
+            </div> 
+
+            <div class="table-cell last-cell">
+                <p>Place of Incident</p>
+            </div> 
+        </div>
+
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p>1</p>
+            </div>
+            <div class="table-cell">
+                <p>Chismisan</p>
+            </div>
+            <div class="table-cell">
+                <p>Unsolved</p>
+            </div>
+            <div class="table-cell">
+                <p>Feb. 07, 2021 12:00pm</p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <a>Feb. 1, 2021  3:00pm</a>
+            </div>  
+
+            <div class="table-cell last-cell">
+                <a>Tapat ng Bahay</a>
+            </div>  
+        </div>
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+                <p>2</p>
+            </div>
+            <div class="table-cell">
+                <p>Thieft</p>
+            </div>
+            <div class="table-cell">
+                <p>Unsolved</p>
+            </div>
+            <div class="table-cell">
+                <p>April 07, 2021 12:00pm</p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <a>April 1, 2021  3:00pm</a>
+            </div>  
+
+            <div class="table-cell last-cell">
+                <a>Tapat ng Bahay</a>
+            </div>  
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p>3</p>
+            </div>
+            <div class="table-cell">
+                <p>Neighborhood</p>
+            </div>
+            <div class="table-cell">
+                <p>Unsolved</p>
+            </div>
+            <div class="table-cell">
+                <p>July 20, 2021 12:00pm</p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <a>July 25, 2021  3:00pm</a>
+            </div>  
+
+            <div class="table-cell last-cell">
+                <a>Tapat ng Bahay</a>
+            </div>  
+        </div>
+
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <a></a>
+            </div> 
+
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>   
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <a></a>
+            </div> 
+
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>   
+        </div>
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>    
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>
+        </div>
+
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p></p>
+            </div>
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p></p>
+            </div>
+            <div class="table-cell">
+                <p></p>
+            </div>
+            <div class="table-cell last-cell">
+                <a></a>
+            </div>
+</div>
+</div>
+
+<div class="cards">
+
+            <div class="cards">
+              <div class="dropdown">
+                <span>Unsettled Case</span>
+                <div class="dropdown-content"> 
+                  <p>578</p>
+                </div>
+              </div>
+            </div>
+
+           
+              </div>
+            </div>
+        </div>
+
+
+
+      </main>
+    </div>
+</body>
+</html>

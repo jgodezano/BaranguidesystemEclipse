@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>View Concerns</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+/*  styling scrollbars  */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #a5aaad;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9eee1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #052d31;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  background: fixed;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header{
+  position: fixed;
+  background: #052d31;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+}
+
+.left_area h3{
+  color: rgb(24, 218, 33);
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .left_area span{
+    color: rgb(245, 245, 245);
+  }
+
+.logout_btn{
+  padding: 5px;
+  background: rgb(24, 218, 33);;
+  text-decoration: none;
+  float: right;
+  margin-top: -30px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.logout_btn:hover{
+  background: #395858;
+}
+
+
+div.scroll {
+  overflow: auto;
+    transition: top 0.3s; 
+}
+
+.content{
+  height: 100vh;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+#check{
+  display: none;
+}
+
+main {
+  background: linear-gradient(135deg, #014e44, #f5f7f7);
+  width: 1362px;
+  display: inline-block;
+    transition: 0.5s;
+  height: 1120px;
+}
+
+.main__container {
+  padding: 20px 35px;
+
+}
+.main__title {
+  display: flex;
+  align-items: center;
+}
+
+.main__greeting > h1 {
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+    margin-top: 10px;
+
+}
+
+.main__greeting > p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #a5aaad;
+      margin-top: 25px;
+}
+.main__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin: 10px 0
+}
+
+.card {
+ display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70px;
+  padding: 22px;
+  border-radius: 5px;
+  border: 1px solid #2F4F4F;
+  background: #ffffff;
+  box-shadow: 2px 2px 13px #ededed, -2px -2px 13px #ffffff;
+  align-items: center;
+}
+
+.card_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #395858;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 20px 20px;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* email list */
+.emailList {
+  flex: 1;
+  overflow: scroll;
+}
+
+.emailList__settings {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid whitesmoke;
+  background-color: white;
+  z-index: 999;
+  padding: 8px;
+}
+
+.emailList__settingsLeft {
+  display: flex;
+  align-items: center;
+}
+
+.emailList__settings .material-icons {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  border-bottom-width: 2px;
+  padding: 15px;
+  min-width: 200px;
+  cursor: pointer;
+  color: grey;
+  border-width: 0;
+}
+
+.emailList__sections {
+  position: sticky;
+  top: 0;
+  display: flex;
+  background-color: #052d31;
+  border-bottom: 1px solid whitesmoke;
+  z-index: 999;
+}
+
+.section__selected {
+  background-color: whitesmoke;
+  border-width: 3px;
+  color: red;
+  border-bottom: 3px solid red;
+}
+
+
+
+.section:hover {
+  background-color: whitesmoke;
+  border-width: 3px;
+}
+
+.section h4 {
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.emailRow__options {
+  display: flex;
+  align-items: center;
+
+}
+
+.emailRow__options .material-icons,
+input {
+  margin: 5px;
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid whitesmoke;
+  cursor: pointer;
+  z-index: 999;
+  border-style: ridge;
+}
+
+.emailRow:hover {
+  border-top: 1px solid whitesmoke;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.24);
+}
+
+.emailRow__message {
+  display: flex;
+  flex: 0.8;
+  align-items: center;
+  font-size: 13px;
+}
+
+.emailRow__message h4 {
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.emailRow__title {
+  font-size: 13px;
+  flex: 0.3;
+  color:black;
+}
+
+.emailRow__time {
+  padding-right: 15px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.emailRow__description {
+  font-weight: 400;
+  color: gray;
+}
+
+.dropbtn {
+  background-color: #00b33c;
+  color: white;
+ padding: 13px 27px;
+  font-size: 13px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 80px;
+  box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 13px 27px;
+  text-decoration: none;
+  display: block;
+
+}
+
+.dropdown-content a:hover {background-color: #5c8a8a}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #5c8a8a}
+
+.button {
+  border: none;
+  color: white;
+  padding: 13px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #003380;} 
+
+</style>
+<body>
+<input type="checkbox" id="check">
+
+    <header>
+      <div class="left_area">
+        <h3>BARANGUIDE <span>INFORMATICS</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn"><i class="fas fa-power-off"></i>  Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+
+
+    <div class="content">
+                <main>
+                  <h1> VIEW CONCERNS </h1>
+        <div class="main__container">
+
+          <div class="main__title">
+            <div class="main__greeting">
+              <p>Welcome to your dashboard, Admin!</p>
+              <h1>Notification for All </h1>
+            </div>
+          </div>
+          <!-- MAIN TITLE ENDS HERE -->
+
+          <!-- MAIN CARDS STARTS HERE -->
+          <div class="main__cards">
+
+            <div class="card">
+              <div class="dropdown">
+                <span>Total of Blotter</span>
+                <div class="dropdown-content"> 
+                  <p>578</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="dropdown">
+                <span>Settled Blotter</span>
+                <div class="dropdown-content"> 
+                  <p>578</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="dropdown">
+                <span>Unsettled Blotter</span>
+                <div class="dropdown-content"> 
+                  <p>578</p>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          <!-- MAIN CARDS ENDS HERE -->
+
+            <!-- BUTTON START HERE -->
+          <div class="dropdown">
+  <button class="dropbtn">View by</button>
+  <div class="dropdown-content">
+    <a href="#">Alphabetic</a>
+    <a href="#">Date</a>
+    <a href="#">Name</a>
+  </div>
+          </div>
+          
+            <button class="button button1">Delete</button>
+
+        <!-- BUTTON ENDS HERE -->
+
+          <!-- Section Starts -->
+        <div class="emailList__sections">
+          <div class="section section__selected">
+            <h4>Primary</h4>
+          </div>
+
+          <div href="document.html" class="section">
+            <h4>Documents Concerns</h4>
+          </div>
+
+          <div href="blotter.html" class="section">
+            <h4>Blotter Concerns</h4>
+          </div>
+
+          <div href="personal.html" class="section">
+            <h4>Personal Concerns</h4>
+          </div>
+
+          <div href="other.html" class="section">
+            <h4>Other Concerns</h4>
+          </div>
+        </div>
+        <!-- Section Ends -->
+
+        <!-- Email List rows starts -->
+        <div class="emailList__list">
+          <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Blotter Report
+                <span class="emailRow__description"> - November 11, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">5pm</p>
+          </div>
+          <!-- Email Row Ends -->
+
+            <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Documents Report
+                <span class="emailRow__description"> - December 15, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">1pm</p>
+          </div>
+          <!-- Email Row Ends -->
+
+          <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Blotter Report
+                <span class="emailRow__description"> - November 11, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">8am</p>
+          </div>
+          <!-- Email Row Ends -->
+
+            <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Documents Report
+                <span class="emailRow__description"> - December 15, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">8pm</p>
+          </div>
+          <!-- Email Row Ends -->
+
+          <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Blotter Report
+                <span class="emailRow__description"> - November 11, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">11am</p>
+          </div>
+          <!-- Email Row Ends -->
+
+            <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Documents Report
+                <span class="emailRow__description"> - December 15, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">10pm</p>
+          </div>
+          <!-- Email Row Ends -->
+
+          <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Blotter Report
+                <span class="emailRow__description"> - November 11, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">8pm</p>
+          </div>
+          <!-- Email Row Ends -->
+
+            <!-- Email Row Starts -->
+          <div class="emailRow">
+            <div class="emailRow__options">
+              <input type="checkbox" name="" id="" />
+              <span class="material-icons"> star_border </span>
+            </div>
+
+            <h3 class="emailRow__title">Notification</h3>
+
+            <div class="emailRow__message">
+              <h4>
+                Blotter Report
+                <span class="emailRow__description"> - November 11, 2020 </span>
+              </h4>
+            </div>
+
+            <p class="emailRow__time">4pm</p>
+          </div>
+          <!-- Email Row Ends -->
+
+      <!-- Email List Ends -->
+    </div>
+         
+
+              
+      </main>
+    </div>
+</body>
+</html>

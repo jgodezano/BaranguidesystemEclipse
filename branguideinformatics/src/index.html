@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login/Sign Up Form</title>
+        <link rel="stylesheet" href="C:\Users\63935\Desktop\frontend\main.css">
+        <link rel="stylesheet" href="https://lib.arvancloud.com/ar/font-awesome/5.9.0/css/all.css">
+</head>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Roboto" sans-serif;
+    background-color: rgb(6, 34, 34);
+    background-size: cover;
+  }
+
+  header {
+    position: fixed;
+    background: #052d31;
+    padding: 20px;
+    width: 100%;
+    height: 80px;
+  }
+
+  .left_area h3 {
+    color: rgb(24, 218, 33);
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  
+
+  .left_area span{
+    color: rgb(245, 245, 245);
+  }
+
+  .sidebar {
+    background: rgb(1, 20, 15);
+    margin-top: 80px;
+    padding-top: 250px;
+    position: fixed;
+    left: 0;
+    width: 360px;
+    height: 100%;
+  }
+  
+  .sidebar .profile_image {
+    width: 130px;
+    height: 130px;
+    border-radius: 180px;
+    margin-bottom: 110px;
+    margin-top: -1000px;
+  }
+
+  .sidebar h4 {
+    margin-top: -80px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(240, 240, 240);
+  }
+
+  .sidebar h5{
+    color: rgb(240, 240, 240);
+    line-height: 30px;
+    font-size: 15px;
+  }
+
+  .sidebar a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    padding-left: 80px;
+    margin-top: -20px;
+    box-sizing: border-box;
+    line-height: 130px;
+    transition: 0.5s;
+    transition-property: background;
+  }
+
+  .sidebar a:hover{
+    background:rgb(209, 255, 44);
+    color:black;
+  }
+
+  .sidebar i{
+    padding-right: 15px;
+  }
+  
+  .content {
+    margin-left: 250px;
+    background: url(./src/buer.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    animation: slide 60s infinite;
+    transition: opacity 0.5 ease;
+  }
+
+  @keyframes slide{
+    25%{
+      background: url(./src/buer\ river.jpg);
+      background-size: cover;
+    }
+    50%{
+      background: url(./src/pangbackground.jpg);
+      background-size: cover;
+    }
+    75%{
+      background: url(./src/brgyhall.jpeg);
+      background-size: cover;
+    }
+    100%{
+      background: url(./src/buerbridge.jpg);
+      background-size: cover;
+    }
+  }
+
+  
+
+</style>
+<body>
+
+<header>
+            <div class="left_area">
+                <h3>Baranguide <span>Informatics</span></h3>
+            </div> 
+        </header>
+        <div class="sidebar">
+            <center>
+                <img src="brgy logo.jpg" class="profile_image" alt="">
+                <h4>Welcome to Barangay Buer</h4>
+                <h5><i class="fa fa-arrow-down" aria-hidden="true"></i>Please Select Button to Login.</h5>
+            </center>
+            <br>
+            <br>
+            <a href="C:\Users\63935\Documents\GitHub\baranguide-informatics\frontend\adminlogin\adminlogin.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Admin</span></a>
+            <a href="C:\Users\63935\Documents\GitHub\baranguide-informatics\frontend\user homepage\userlogin.html"><i class="fa fa-user-o" aria-hidden="true"></i><span>User</span></a>
+        </div>
+        <div class="content"></div>
+</body>
+</html>

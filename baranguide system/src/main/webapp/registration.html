@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+/*  styling scrollbars  */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #a5aaad;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9eee1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #052d31;
+}
+ body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  height: 14vh;  
+   margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #597272;
+    background-size: cover;
+    overflow: scroll;
+    position: sticky;
+}
+
+ header {
+    position: fixed;
+    background: #052d31;
+    padding: 20px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .left_area h3 {
+    color: rgb(24, 218, 33);
+    text-transform: uppercase;
+    margin: 0 20;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .left_area span{
+    color: rgb(245, 245, 245);
+  }
+
+h1 {
+  color: black;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    margin-left: 300px;
+}
+
+#content{
+  overflow: scroll;
+}
+
+.container {
+  background-color: white;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25), 
+      0 10px 10px rgba(0,0,0,0.22);
+  position: fixed;
+  overflow: hidden;
+  width: 1200px;
+  min-height: 540px;
+  margin-top: 650px;
+}
+
+#logo {
+    height: 10px;
+    right: 235px;
+    bottom: 70px; 
+    position: relative;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 200%;
+  width: 900px;
+  transition: all 0.6s ease-in-out;
+} 
+
+.container form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container.right-panel-active .register-container {
+  transform: translateX(100%);
+}
+
+.container.right-panel-active .register-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+.input-box1{
+  width: 200px;
+  margin-left: 50px;
+  }
+
+  form .input-box1 span.details{
+  display: block;
+  font-weight: 520;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 14px;
+}
+
+.user-details .input-box1 input{
+  height: 30px;
+  width: 140%;
+  outline: none;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box2 input{
+  height: 30px;
+  width: 115%;
+  outline: none;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  margin-right: 350px;
+}
+
+  form .input-box2 span.details{
+  display: block;
+  font-weight: 520;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 14px;
+}
+
+.user-details .input-box1 input:focus,
+.user-details .input-box1 input:valid{
+  border-color: #052d31;
+}
+
+.user-details .input-box2 input:focus,
+.user-details .input-box2 input:valid{
+  border-color: #052d31;
+}
+
+ form .gender-details .gender-title{
+  font-size: 14px;
+  font-weight: 520px;
+  color: black;
+  margin-left: 50px;
+ }
+
+ form .category{
+   display: flex;
+   width: 30%;
+   margin: 10px 0 ;
+   justify-content: space-between;
+   margin-left: 50px;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer; 
+   font-size: 15px;
+   font-weight: 520px;
+     margin-right: 40px;
+     color: black;
+ }
+
+ #dot1:checked ~ .category label .one,
+ #dot2:checked ~ .category label .two,{
+   background: #052d31;
+   border-color: #052d31;
+ }
+ form input[type="radio"]{
+   display: flex;
+ }
+
+ .user-details .input-box3 select{
+  height: 30px;
+  width: 90%;
+  outline: none;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+ form .input-box3 span.details{
+  display: block;
+  font-weight: 520;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 14px;
+  margin-left: 50px;
+}
+
+ .user-details .input-box5 select{
+  height: 30px;
+  width: 120%;
+  outline: none;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+ form .input-box5 span.details{
+  display: block;
+  font-weight: 520;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+ .user-details .input-box4 input{
+  height: 30px;
+  width: 120%;
+  outline: none;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+ form .input-box4 span.details{
+  display: block;
+  font-weight: 520;
+  margin-bottom: 5px;
+  color: black;
+  margin-right: 50px;
+  font-size: 14px;
+}
+
+ .user-details .input-box6 input{
+  height: 30px;
+  width: 125%;
+  outline: none;
+  font-size: 14px;
+  padding-left: 0px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+ form .input-box6 span.details{
+  display: block;
+  font-weight: 520;
+  margin-bottom: 5px;
+  color: black;
+  margin-left: 30px;
+  font-size: 14px;
+}
+
+.input-box7 span.details{
+  margin-top: 75px;
+  margin-left: 1020px;
+  display: block;
+  font-weight: 520;
+  color: black;
+  font-size: 14px;
+}
+
+.wrapper{
+  margin-top: 10px;
+  margin-left: 1020px;
+  position: relative;
+  height: 110px;
+  width: 120px;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.wrapper.active{
+  border: none;
+}
+.wrapper .image{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.wrapper .icon{
+  font-size: 40px;
+  color: #2F4F4F;
+}
+.wrapper .text{
+  font-size: 14px;
+  font-weight: 500;
+  color: #5B5B7B;
+}
+.wrapper #cancel-btn i{
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  top: 15px;
+  color: #2F4F4F;
+  cursor: pointer;
+  display: none;
+}
+.wrapper.active:hover #cancel-btn i{
+  display: block;
+}
+.wrapper #cancel-btn i:hover{
+  color: #e74c3c;
+}
+.wrapper .file-name{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 10px;
+  color: #fff;
+  display: none;
+  background:#2F4F4F;
+}
+.wrapper.active:hover .file-name{
+  display: block;
+}
+.container #custom-btn{
+  margin-top: 20px;
+  display: block;
+  width: 120px;
+  margin-left: 1020px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #052d31;
+}
+
+#registration {
+  border-radius: 20px;
+  border: 1px solid #2F4F4F;
+  background-color: #052d31;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+margin-left: 520px;
+margin-top: 90px;
+position: absolute;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #FFFFFF;
+}
+
+.input-box8 span.details{
+  margin-top: 20px;
+  margin-left: 1000px;
+  display: block;
+  font-weight: 520;
+  color: black;
+  font-size: 14px;
+}
+
+.id_upload  input{
+  margin-left: 1000px;
+  margin-top: 5px;
+  outline: none;
+  font-size: 14px;
+
+}
+</style>
+<body>
+<header>
+	<div class="left_area">
+		<h3>Baranguide <span>Informatics</span></h3>
+	</div> 
+</header>
+
+<div class="container" id="container">
+	<div class="form-container register-container">
+		<form action="#">
+			<h1> REGISTRATION </h1>
+			<div class="user-details">
+          <div class="input-box1">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter your last name" required>
+          </div>
+          <div class="input-box1">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your first name" required>
+          </div>
+          <div class="input-box1">
+            <span class="details">Middle Name</span>
+            <input type="text" placeholder="Enter your middle name" required>
+          </div>
+
+          <div class="input-box1">
+            <span class="details">Age</span>
+            <input type="text" placeholder="Enter your age" required>
+          </div>
+          <div class="input-box1">
+            <span class="details">Birthday</span>
+            <input type="date" id="birthday" name="birthday" required style="color: gray;" required>
+          </div>
+          <div class="input-box1">
+            <span class="details">Place of Birth</span>
+            <input type="text" placeholder="Enter your place of birth" required>
+          </div>
+          
+		<div class="gender-details">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <input type="radio" name="gender" id="dot1">
+            <label for="dot1">
+            <span class="gender">Male</span>
+          </label>
+            <input type="radio" name="gender" id="dot2">
+          <label for="dot2">
+            <span class="gender">Female</span>
+          </label>
+          </div>
+        </div>
+          
+          <div class="input-box2">
+            <span class="details">Address</span>
+            <input type="text" placeholder="Enter your complete address" required>
+          </div>
+
+          <div class="input-box1">
+            <span class="details">Civil Status</span>
+            <input type="text" placeholder="Enter your civil status" required>
+          </div>
+        <div class="input-box1">
+            <span class="details">Religion</span>
+            <input type="text" placeholder="Enter your religion" required>
+          </div>
+        <div class="input-box1">
+            <span class="details">Voter or Non-voter</span>
+            <input type="text" placeholder="Enter whether you are a voter or non-voter" required>
+          </div>
+
+        <div class="input-box3">
+        	<span class="details">Resident Type</span>
+            <select name="Resident Type" id="rtype" required>
+    <option value="owner">Owner</option>
+    <option value="temporarytenant">Temporary/Tenant</option>
+    <option value="pensioners">Pensioners</option>
+  </select>
+</div>
+
+        <div class="input-box5">
+        	<span class="details">Residential Status</span>
+    <select name="Residential Status" id="rstatus" required>
+    <option value="4psmember">4P's Member</option>
+    <option value="firstclass">First Class</option>
+    <option value="middleclass">Middle Class</option>
+    <option value="grossincome">Gross Income</option>
+    <option value="tax">Tax</option>
+  </select>
+</div>
+<div class="input-box4">
+            <span class="details">Monthly Income</span>
+            <input type="text" placeholder="Monthly Income" required>
+          </div>
+        <div class="input-box6">
+            <span class="details">Contact Number</span>
+              <input type="tel" placeholder="09XXXXXXXXX" required>
+          </div>
+<div class="input-box1">
+            <span class="details">Email Address</span>
+            <input type="email" placeholder="Enter your email address" required>
+          </div>
+          <div class="input-box1">
+            <span class="details">
+              <label for="pwd">Password</label></span>
+          <input type="password" placeholder="Enter password" id="pwd" name="pwd" minlength="8" required>
+        </div>
+          <div class="input-box1">
+            <span class="details">
+              <label for="psw-repeat">Repeat Password</label></span>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" minlength="8" required>
+      </div>
+      </div>
+
+</div>
+<div class="input-box7">
+<span class="details"> Attach 1x1 Picture</span>
+</div>
+      <div class="wrapper">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+<div class="content">
+          <div class="icon" style="align-items: center;">
+<i class="fas fa-cloud-upload-alt"></i></div>
+<div class="text">
+No file chosen, yet!</div>
+</div>
+<div id="cancel-btn">
+<i class="fas fa-times"></i></div>
+<div class="file-name">
+File name here</div>
+</div>
+<button onclick="defaultBtnActive()" id="custom-btn">Upload file</button>
+      <input id="default-btn" type="file" hidden required>
+ 
+<div class="input-box8">
+<span class="details"> Front ID </span>
+</div>
+<div class="id_upload">
+<input type="file" id="myFile" name="filename" required>
+</div>
+<div class="input-box8">
+<span class="details"> Back ID </span>
+</div>
+  <div class="id_upload">
+<input type="file" id="myFile" name="filename" required>
+<button id="registration">REGISTER</button>
+</div>
+      
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div> 
+</body>
+</html>
